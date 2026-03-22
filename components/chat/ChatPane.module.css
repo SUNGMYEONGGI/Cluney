@@ -1,0 +1,186 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--app-border);
+}
+
+.title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status {
+  font-size: 12px;
+  color: var(--app-muted);
+}
+
+.button {
+  border: 1px solid var(--app-border);
+  background: rgba(0, 0, 0, 0.18);
+  color: var(--app-fg);
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.messages {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty {
+  font-size: 13px;
+  color: var(--app-muted);
+  padding: 12px;
+  border: 1px dashed var(--app-border);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.messageRow {
+  display: flex;
+}
+
+.userRow {
+  justify-content: flex-end;
+}
+
+.assistantRow {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: min(560px, 100%);
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--app-border);
+  background: var(--bubble-assistant);
+}
+
+.userRow .bubble {
+  background: var(--bubble-user);
+  color: var(--bubble-fg);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.role {
+  font-size: 11px;
+  opacity: 0.75;
+  margin-bottom: 6px;
+  text-transform: capitalize;
+}
+
+.text {
+  white-space: pre-wrap;
+  line-height: 1.55;
+  font-size: 13px;
+}
+
+.error {
+  margin: 0 16px 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 93, 93, 0.35);
+  background: rgba(255, 93, 93, 0.12);
+  border-radius: 12px;
+  color: #ffd6d6;
+  font-size: 13px;
+}
+
+.composer {
+  border-top: 1px solid var(--app-border);
+  padding: 12px 16px 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.input {
+  width: 100%;
+  resize: none;
+  border-radius: 12px;
+  border: 1px solid var(--app-border);
+  background: rgba(0, 0, 0, 0.18);
+  color: var(--app-fg);
+  padding: 10px 12px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.send {
+  align-self: end;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: var(--bubble-user);
+  color: var(--bubble-fg);
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.send:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.typing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 18px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.65);
+  animation: typing-bounce 1.2s infinite ease-in-out;
+  opacity: 0.6;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing-bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  40% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}

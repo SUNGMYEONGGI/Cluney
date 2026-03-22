@@ -1,0 +1,109 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--app-border);
+}
+
+.title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--app-muted);
+}
+
+.metaRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.charCount {
+  font-size: 12px;
+  color: var(--app-muted);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolButton {
+  border: 1px solid var(--app-border);
+  background: rgba(0, 0, 0, 0.18);
+  color: var(--app-fg);
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.toolButton:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.toolButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.active {
+  border-color: rgba(42, 109, 246, 0.8);
+}
+
+.submitButton {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: var(--bubble-user);
+  color: var(--bubble-fg);
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.submitButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 16px;
+}
+
+.editorContainer {
+  border: 1px solid var(--app-border);
+  border-radius: 12px;
+  padding: 14px 14px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.proseMirror {
+  outline: none;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.proseMirror p {
+  margin: 0 0 10px;
+}
+
+.proseMirror p:last-child {
+  margin-bottom: 0;
+}
