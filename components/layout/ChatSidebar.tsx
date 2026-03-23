@@ -45,7 +45,11 @@ export function ChatSidebar({
 
   const loadSessions = useCallback(async () => {
     try {
-      const res = await fetch("/api/sessions");
+      const params = new URLSearchParams();
+      if (currentMode) params.append("mode", currentMode);
+      if (problemId) params.append("problemId", problemId);
+      
+      const res = await fetch(`/api/sessions?${params.toString()}`);
       if (res.ok) {
         const data = await res.json();
         setSessions(data.sessions || []);
@@ -53,14 +57,14 @@ export function ChatSidebar({
     } catch (e) {
       console.error(e);
     }
-  }, []);
+  }, [problemId, currentMode]);
 
   useEffect(() => {
     loadSessions();
   }, [loadSessions]);
 
-  // Filter sessions by problemId
-  const problemSessions = sessions.filter((s) => s.problemId === problemId || !s.problemId); // Temporary fallback until logs have problemId
+  // Use all filtered sessions from backend
+  const problemSessions = sessions;
 
   return (
     <>

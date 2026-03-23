@@ -7,6 +7,7 @@ export const runtime = "nodejs";
 const requestSchema = z.object({
   sessionId: z.string().optional(),
   mode: z.enum(["active", "passive"]).optional(),
+  problemId: z.string().optional(),
   event: z.string(),
   messages: z.unknown().optional(),
   error: z.string().optional(),
@@ -64,6 +65,7 @@ export async function POST(req: Request) {
       entry: {
         sessionId: body.sessionId,
         mode: body.mode,
+        problemId: body.problemId,
         at: getKstTimestamp(),
         event: body.event,
         meta: body.meta || {},

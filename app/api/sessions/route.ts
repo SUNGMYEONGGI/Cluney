@@ -7,6 +7,7 @@ export const runtime = "nodejs";
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const modeFilter = searchParams.get("mode"); // "active" | "passive" | null
+  const problemIdFilter = searchParams.get("problemId"); // e.g. "problem6"
 
   const filePath = path.join(process.cwd(), "data", "chatlog.json");
   try {
@@ -34,6 +35,7 @@ export async function GET(request: Request) {
           sessionId,
           title,
           mode: log.mode || "unknown",
+          problemId: log.problemId || null,
           updatedAt: log.at,
           messages: log.messages
         });
@@ -43,6 +45,7 @@ export async function GET(request: Request) {
           session.updatedAt = log.at;
           session.messages = log.messages;
           if (log.mode) session.mode = log.mode;
+          if (log.problemId) session.problemId = log.problemId;
         }
       }
     }
@@ -51,10 +54,15 @@ export async function GET(request: Request) {
 
     // Filter by mode if query param is provided
     if (modeFilter === "active" || modeFilter === "passive") {
-      sessionList = sessionList.filter((s) => s.mode === modeFilter);
+      sessionList = sessionList.filter((s: any) => s.mode === modeFilter);
+    }
+    
+    // Filter by problemId if query param is provided
+    if (problemIdFilter) {
+      sessionList = sessionList.filter((s: any) => s.problemId === problemIdFilter);
     }
 
-    const sessions = sessionList.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+    const sessions = sessionList.sort((a: any, b: any) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
 
     return NextResponse.json({ sessions });
   } catch (error) {
