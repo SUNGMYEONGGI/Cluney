@@ -1,6 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# =========================
 # dependencies
+# =========================
 /node_modules
 /.pnp
 .pnp.*
@@ -10,35 +12,98 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# package manager logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# =========================
+# testing / coverage
+# =========================
+/coverage
+
+# =========================
+# Next.js
+# =========================
+/.next/
+/out/
+
+# =========================
+# production / build
+# =========================
+/build
+/dist
+
+# =========================
+# environment variables
+# =========================
 .env*
+!.env.example
 
-# local data (logs/submissions)
-/data
-
-# vercel
+# =========================
+# Vercel
+# =========================
 .vercel
 
-# typescript
+# =========================
+# TypeScript
+# =========================
 *.tsbuildinfo
 next-env.d.ts
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.eggs/
+*.egg-info/
+pip-wheel-metadata/
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# =========================
+# OS files
+# =========================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================
+# IDE / editor
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# misc
+# =========================
+*.pem

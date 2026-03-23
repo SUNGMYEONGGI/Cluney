@@ -1,0 +1,10 @@
+{
+  "sessionId": "5d99b10e-1bea-4515-ba43-580e607ed231",
+  "studentId": "",
+  "timestamp": "2026-03-08T11:32:39.324Z",
+  "isAbort": false,
+  "isError": true,
+  "isDisconnect": false,
+  "totalTurns": 1,
+  "completionTimeSeconds": 29.919
+}

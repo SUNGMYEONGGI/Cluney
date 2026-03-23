@@ -1,0 +1,11 @@
+{
+  "sessionId": "72e10409-54a5-44c2-9767-bf563bd787c3",
+  "studentId": "smgsmg226",
+  "timestamp": "2026-03-08T11:31:28.572Z",
+  "finishReason": "stop",
+  "isAbort": false,
+  "isError": false,
+  "isDisconnect": false,
+  "totalTurns": 1,
+  "completionTimeSeconds": 53.381
+}
